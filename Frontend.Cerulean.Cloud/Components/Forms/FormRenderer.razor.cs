@@ -27,9 +27,11 @@ namespace Frontend.Cerulean.Cloud.Components.Forms
         }
 
         private void FillDictionary(FormSection formSection) {
-            if (formSection.SubSection != null)
+            if (formSection.SubSections?.Count > 0)
             {
-                FillDictionary(formSection.SubSection);
+                foreach (var subSection in formSection.SubSections) {
+                    FillDictionary(subSection);
+                }
             }
             foreach (var element in formSection.Elements ?? []) {
                 var key = FormHelper.GetKeyRepeatableKey(formSection.IsRepeatable, element.Name);

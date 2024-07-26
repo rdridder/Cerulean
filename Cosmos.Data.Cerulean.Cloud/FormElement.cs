@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Cosmos.Data.Cerulean.Cloud
+﻿namespace Cosmos.Data.Cerulean.Cloud
 {
     public class FormElement
     {
@@ -12,5 +6,14 @@ namespace Cosmos.Data.Cerulean.Cloud
         public string Name { get; set; }
         public string Label { get; set; }
         public string PlaceHolder { get; set; }
+
+        public FormElement GetElementCopy(int copyVersion)
+        {
+            return new FormElement() { 
+                Type = Type, 
+                Name = $"{Name}_{copyVersion}", 
+                Label = Label, 
+                PlaceHolder = PlaceHolder };
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿<div class="border border-primary">
+﻿@using Cosmos.Data.Cerulean.Cloud
+<div class="border border-primary">
     <h2>@Section.Label</h2>
     @foreach (var element in Section.Elements)
     {
@@ -23,16 +24,11 @@
     }
 </div>
 <div class="border border-secondary">
-    @if (Section.SubSection != null)
+    @if (Section?.SubSections?.Count > 0)
     {
-        <FormSectionRenderer ElementValues="@ElementValues" Section="@Section.SubSection" />
+        foreach (var subSection in Section.SubSections)
+        {
+            <FormSectionRenderer ElementValues="@ElementValues" Section="@subSection" />
+        }
     }
 </div>
-
-@code {
-    private void AddFormSection(string label)
-    {
-        
-    }
-
-}
