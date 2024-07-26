@@ -1,0 +1,3 @@
+https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/model-partition-example
+https://cosmosdb.github.io/labs/dotnet/labs/03-querying_in_azure_cosmosdb.html
+https://officegarageitpro.medium.com/ai-semantic-search-for-your-website-with-azure-cosmos-db-e-commerce-76efc4203ea9

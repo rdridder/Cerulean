@@ -1,0 +1,31 @@
+{
+	"Name": "Test product",
+	"Sku": "12345AB",
+	"Images": [
+		{
+			"Url": "https://cdn.cerulean.cloud/image1.jpg",
+			"Type": "Packshot"
+		},
+		{
+			"Url": "https://cdn.cerulean.cloud/image2.jpg",
+			"Type": "Model"
+		}
+	],
+	"Prices": [
+		{
+			"From": null,
+			"To": null,
+			"Price": "100.10",
+			"Currency": "EUR",
+			"PriceType": "List price"
+		},
+		{
+			"From": "2024-04-23T18:25:43.511Z",
+			"To": "2024-04-30T18:25:43.511Z",
+			"Price": "90.00",
+			"Currency": "EUR",
+			"PriceType": "List price"
+		}
+	] 
+
+}
