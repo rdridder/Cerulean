@@ -1,63 +1,17 @@
-﻿@if (_form == null)
+﻿@using Cosmos.Data.Cerulean.Cloud
+@if (_form == null)
 {
     <h1>LOADING</h1>
 } else {
     <h3>FormRenderer</h3>
     <h3>@_form.FormId</h3>
-    <h3>@_form.Elements.Count</h3>
+    <h3>@_form.Sections.Count</h3>
 
     <EditForm Model="@ElementValues" OnValidSubmit="@HandleValidSubmit">
-        @foreach (var element in _form.Elements)
+        @foreach (var section in _form.Sections)
         {
-            if (element.Type == "Text")
-            {
-                <div class="form-group">
-                    <p>
-                        <label for="@element.Name">@element.Label</label>
-                        <input type="text" id="@element.Name" class="form-control" placeholder="@element.PlaceHolder" @onchange ="@(c => ElementValues[element.Name] = c.Value)" value=@ElementValues[element.Name] />
-                    </p>
-                </div>
-            }
-            else if (element.Type == "TextArea")
-            {
-                <div class="form-group">
-                    <p>
-                        <label for="@element.Name">@element.Label</label>
-                        <textarea id="@element.Name" class="form-control" placeholder="@element.PlaceHolder" @onchange="@(c => ElementValues[element.Name] = c.Value)" value=@ElementValues[element.Name] />
-                    </p>
-                </div>
-            }
-            else if (element.Type == "CheckBox")
-            {
-                <div class="form-check">
-                    <p>
-                        <input type="checkbox" id="@element.Name" class="form-check-input" @onchange="@(c => ElementValues[element.Name] = c.Value)" value=@ElementValues[element.Name]>
-                        <label class="form-check-label" for="@element.Name">
-                            @element.Label
-                        </label>
-                    </p>
-                </div>
-            }
-        
-        
-        
-        
-        
-        
-        
+            <FormSectionRenderer ElementValues="@ElementValues" Section="section"/>
         }
-
-
-
-
-
-
-
-
         <button type="submit">Submit</button>
     </EditForm>
-
-
-
-    
 }

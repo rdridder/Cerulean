@@ -1,0 +1,38 @@
+﻿<div class="border border-primary">
+    <h2>@Section.Label</h2>
+    @foreach (var element in Section.Elements)
+    {
+        if (element.Type == "Text")
+        {
+            <TextInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" />
+        }
+        else if (element.Type == "TextArea")
+        {
+            <TextAreaInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" />
+        }
+        else if (element.Type == "CheckBox")
+        {
+            <CheckBoxInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" />
+        }
+    }
+    @if (@Section.IsRepeatable)
+    {
+        <button class="btn btn-outline-dark flex-shrink-0" type="button" @onclick="() => AddFormSection(Section.Label)">
+            Add section
+        </button>
+    }
+</div>
+<div class="border border-secondary">
+    @if (Section.SubSection != null)
+    {
+        <FormSectionRenderer ElementValues="@ElementValues" Section="@Section.SubSection" />
+    }
+</div>
+
+@code {
+    private void AddFormSection(string label)
+    {
+        
+    }
+
+}

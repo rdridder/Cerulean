@@ -11,7 +11,7 @@ namespace Cosmos.Data.Cerulean.Cloud
     {
         public string id { get; set; }
         public string FormId { get; set; }
-        public List<FormElement> Elements { get; set; }
+        public List<FormSection> Sections { get; set; }
         public string _rid { get; set; }
         public string _self { get; set; }
         public string _etag { get; set; }

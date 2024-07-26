@@ -1,0 +1,10 @@
+﻿@using Frontend.Cerulean.Cloud.Components.Base;
+@inherits BaseInputComponent
+<div class="form-check">
+    <p>
+        <input type="checkbox" id="@Key" class="form-check-input" @onchange="@(c => ElementValues[Key] = c.Value)" value=@ElementValues[Key]>
+        <label class="form-check-label" for="@Key">
+            @Element.Label
+        </label>
+    </p>
+</div>
