@@ -1,0 +1,94 @@
+{
+  "id": "ProductForm",
+  "FormId": "ProductForm",
+  "Sections": [
+    {
+      "Label": "Main form section",
+      "IsRepeatable": false,
+      "Elements": [
+        {
+          "Type": "Text",
+          "Name": "Title",
+          "Label": "Product title",
+          "PlaceHolder": "Type your product title here",
+          "Validations": [
+            {
+              "Name": "Required"
+            },
+            {
+              "Name": "MaxLength",
+              "Options": {
+                "MaxLength": "10"
+              }
+            }
+          ]
+        },
+        {
+          "Type": "CheckBox",
+          "Name": "IsPublished",
+          "Label": "Is this product published ?",
+          "Validations": [
+            {
+              "Name": "Required"
+            }
+          ]
+        },
+        {
+          "Type": "TextArea",
+          "Name": "Description",
+          "Label": "Product description",
+          "PlaceHolder": "Type your product description here"
+        }
+      ],
+      "SubSections": [
+        {
+          "Label": "Sub form section",
+          "IsRepeatable": false,
+          "Elements": [
+            {
+              "Type": "Text",
+              "Name": "Subtitle",
+              "Label": "Sub Product title",
+              "PlaceHolder": "Type your sub product title here"
+            },
+            {
+              "Type": "CheckBox",
+              "Name": "SubIsPublished",
+              "Label": "Is this sub product published ?"
+            },
+            {
+              "Type": "TextArea",
+              "Name": "SubDescription",
+              "Label": "Sub Product description",
+              "PlaceHolder": "Type your sub product description here"
+            }
+          ],
+          "SubSections": [
+            {
+              "Label": "Sub sub form section",
+              "IsRepeatable": true,
+              "Elements": [
+                {
+                  "Type": "Text",
+                  "Name": "SubSubtitle",
+                  "Label": "Sub Sub Product title",
+                  "PlaceHolder": "Type your sub product title here"
+                },
+                {
+                  "Type": "CheckBox",
+                  "Name": "SubSubIsPublished",
+                  "Label": "Is this sub sub product published ?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "_rid": "OxQmAOSWkZcBAAAAAAAAAA==",
+  "_self": "dbs/OxQmAA==/colls/OxQmAOSWkZc=/docs/OxQmAOSWkZcBAAAAAAAAAA==/",
+  "_etag": "\"00000000-0000-0000-e40a-5e6cc84801da\"",
+  "_attachments": "attachments/",
+  "_ts": 1722513614
+}
