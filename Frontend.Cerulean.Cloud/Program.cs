@@ -1,5 +1,8 @@
 using Cosmos.Services.Cerulean.Cloud;
+using Frontend.Cerulean.Cloud.Components.Validations;
+using Frontend.Cerulean.Cloud.Interfaces;
 using Interfaces.Cerualean.Cloud;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Configuration;
 
 namespace Frontend.Cerulean.Cloud
@@ -23,6 +26,8 @@ namespace Frontend.Cerulean.Cloud
 
 
             builder.Services.AddSingleton<ICosmosService>(InitializeCosmosClientInstanceAsync(databaseName,containerName,account,key).GetAwaiter().GetResult());
+            builder.Services.AddSingleton<IFormValidationRegistry, FormValidationRegistry>();
+
 
             var app = builder.Build();
 

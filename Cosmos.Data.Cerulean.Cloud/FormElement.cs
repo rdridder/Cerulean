@@ -7,6 +7,8 @@
         public string Label { get; set; }
         public string PlaceHolder { get; set; }
 
+        public FormValidation[] Validations { get; set; }
+
         public FormElement GetElementCopy(int copyVersion)
         {
             return new FormElement() { 
