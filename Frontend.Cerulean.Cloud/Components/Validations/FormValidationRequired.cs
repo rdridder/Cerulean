@@ -1,14 +1,19 @@
 ﻿using Frontend.Cerulean.Cloud.Components.Base;
 using Frontend.Cerulean.Cloud.Interfaces;
+using Microsoft.Extensions.Localization;
 using Newtonsoft.Json.Linq;
 
 namespace Frontend.Cerulean.Cloud.Components.Validations
 {
-    public class FormValidationRequired : IFormValidation
+    public class FormValidationRequired : BaseFormValidation
     {
-        public FormValidationResult Validate(object? input, Dictionary<string, string>? formValidationOptions)
+        public FormValidationRequired(IStringLocalizer<App> localizer) : base(localizer)
         {
-            var message = $"The input is mandatory.";
+        }
+
+        public override FormValidationResult Validate(object? input, Dictionary<string, string>? formValidationOptions)
+        {
+            var message = Localizer["FormValidationRequired"];
             if (input == null) {
                 return new FormValidationResult(message);
             }

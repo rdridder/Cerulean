@@ -3,6 +3,7 @@ using Frontend.Cerulean.Cloud.Components.Validations;
 using Frontend.Cerulean.Cloud.Interfaces;
 using Interfaces.Cerualean.Cloud;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Localization;
 using System.Configuration;
 
 namespace Frontend.Cerulean.Cloud
@@ -24,12 +25,15 @@ namespace Frontend.Cerulean.Cloud
             var account = builder.Configuration.GetValue<string>("CosmosDb:Account");
             var key = builder.Configuration.GetValue<string>("CosmosDb:Key");
 
-
+            builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+            builder.Services.AddScoped<IStringLocalizer<App>, StringLocalizer<App>>();
             builder.Services.AddSingleton<ICosmosService>(InitializeCosmosClientInstanceAsync(databaseName,containerName,account,key).GetAwaiter().GetResult());
-            builder.Services.AddSingleton<IFormValidationRegistry, FormValidationRegistry>();
+            builder.Services.AddScoped<IFormValidationRegistry, FormValidationRegistry>();
 
 
             var app = builder.Build();
+            // TODO, hardcoded locale
+            //app.UseRequestLocalization("en");
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
