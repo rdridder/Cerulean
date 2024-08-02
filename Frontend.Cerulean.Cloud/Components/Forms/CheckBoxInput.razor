@@ -1,13 +1,15 @@
 ﻿@using Frontend.Cerulean.Cloud.Components.Base;
 @inherits BaseInputComponent
-<div class="form-check">
-    <p>
+<div class="form-check mb-3">
+    <div class="input-group has-validation">
         <input type="checkbox" id="@Key" class="@ProcessedElementClass" @onchange="@(c => ElementValues[Key] = c.Value)" value=@ElementValues[Key]>
-        <label class="form-check-label" for="@Key">
+        <label class="form-check-label ms-1" for="@Key">
             @Element.Label
         </label>
-    </p>
-    <ValidationMessage For="@(() => Element.Name)" />
+        <div id="validation@(Key)Feedback" class="invalid-feedback">
+            <ValidationMessage For="@(() => Element.Name)" />
+        </div>
+    </div>
 </div>
 
 @code {

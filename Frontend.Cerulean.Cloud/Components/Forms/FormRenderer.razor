@@ -1,12 +1,9 @@
 ﻿@using Cosmos.Data.Cerulean.Cloud
+@using Frontend.Cerulean.Cloud.Components.General;
 @if (_form == null)
 {
-    <h1>LOADING</h1>
+    <Loader />
 } else {
-    <h3>FormRenderer</h3>
-    <h3>@_form.FormId</h3>
-    <h3>@_form.Sections.Count</h3>
-
     <EditForm OnValidSubmit="@HandleValidSubmit" EditContext="@editContext">
         @foreach (var section in _form.Sections)
         {

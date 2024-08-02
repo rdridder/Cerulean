@@ -1,14 +1,12 @@
 ﻿@using Frontend.Cerulean.Cloud.Components.Base;
 @inherits BaseInputComponent
-<div class="form-group">
+<div class="form-group mb-3">
+    <label class="mb-1" for="@Key">@Element.Label</label>
     <div class="input-group has-validation">
-        <label for="@Key">@Element.Label</label>
         <input type="text" id="@Key" class="@ProcessedElementClass" placeholder="@Element.PlaceHolder" @onchange="@(c => ElementValues[Key] = c.Value)" value=@ElementValues[Key] />
         <div id="validation@(Key)Feedback" class="invalid-feedback">
             <ValidationMessage For="@(() => Element.Name)" />
         </div>
-
-
     </div>
 </div>
 

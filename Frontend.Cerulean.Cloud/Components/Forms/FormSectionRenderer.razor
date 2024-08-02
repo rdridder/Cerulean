@@ -1,21 +1,23 @@
 ﻿@using Cosmos.Data.Cerulean.Cloud
 <div class="border border-primary">
-    <h2>@Section.Label</h2>
-    @foreach (var element in Section.Elements)
-    {
-        if (element.Type == "Text")
+    <h3>@Section.Label</h3>
+    <div class="p-3">
+        @foreach (var element in Section.Elements)
         {
-            <TextInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" />
+            if (element.Type == "Text")
+            {
+                <TextInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" />
+            }
+            else if (element.Type == "TextArea")
+            {
+                <TextAreaInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" />
+            }
+            else if (element.Type == "CheckBox")
+            {
+                <CheckBoxInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" />
+            }
         }
-        else if (element.Type == "TextArea")
-        {
-            <TextAreaInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" />
-        }
-        else if (element.Type == "CheckBox")
-        {
-            <CheckBoxInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" />
-        }
-    }
+    </div>
     @if (@Section.IsRepeatable)
     {
         <button class="btn btn-outline-dark flex-shrink-0" type="button" @onclick="() => AddFormSection(Section.Label)">
