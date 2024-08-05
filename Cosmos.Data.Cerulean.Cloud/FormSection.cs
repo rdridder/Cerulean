@@ -12,28 +12,38 @@ namespace Cosmos.Data.Cerulean.Cloud
 
         public bool IsRepeatable { get; set; }
 
+        public int CopyVersion { get; set; } = 0;
+
         public List<FormElement> Elements { get; set; }
 
         public List<FormSection> SubSections { get; set; }
-        public FormSection GetElementCopy(int copyVersion)
+        public FormSection GetElementCopy(int copyVersion = 0)
         {
-            var copiedFormElements = new List<FormElement>();
-            foreach (var item in Elements ?? []) {
-                copiedFormElements.Add(item.GetElementCopy(copyVersion));
+            var newVersion = CopyVersion + 1;
+            if (copyVersion != 0)
+            {
+                newVersion = copyVersion;
             }
 
-            //var copiedFormSubSections = new List<FormSection>();
-            //foreach (var item in SubSections ?? [])
-            //{
-            //    copiedFormSubSections.Add(item.GetElementCopy(copyVersion));
-            //}
+            var copiedFormElements = new List<FormElement>();
+            foreach (var item in Elements ?? []) {
+                copiedFormElements.Add(item.GetElementCopy(newVersion));
+            }
+
+            var copiedFormSubSections = new List<FormSection>();
+            foreach (var item in SubSections ?? [])
+            {
+                var subSectionVersion = item.CopyVersion + 1;
+                copiedFormSubSections.Add(item.GetElementCopy(subSectionVersion));
+            }
 
             return new FormSection()
             {
-                Label = $"{Label}_{copyVersion}",
+                Label =   $"{Label}_{newVersion}",
                 IsRepeatable = false,
+                CopyVersion = newVersion,
                 Elements = copiedFormElements,
-                SubSections = null
+                SubSections = copiedFormSubSections
             };
         }
     }

@@ -14,6 +14,9 @@ namespace Frontend.Cerulean.Cloud.Components.Base
         [Parameter, EditorRequired]
         public required FormElement Element { get; init; }
 
+        [Parameter, EditorRequired]
+        public required int CopyVersion { get; init; }
+
         [Parameter]
         public bool IsRepeatable { get; set; }
 
@@ -51,7 +54,7 @@ namespace Frontend.Cerulean.Cloud.Components.Base
 
         protected override void OnInitialized()
         {
-            Key = FormHelper.GetKeyRepeatableKey(IsRepeatable, Element.Name);
+            Key = Element.Name;
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Cosmos.Data.Cerulean.Cloud;
+using Frontend.Cerulean.Cloud.Components.Statics;
 using Microsoft.AspNetCore.Components;
+using Microsoft.VisualBasic;
 
 namespace Frontend.Cerulean.Cloud.Components.Forms
 {
@@ -13,23 +15,21 @@ namespace Frontend.Cerulean.Cloud.Components.Forms
 
         private bool IsRepeatable { get; set; }
 
-        private int copyNumber;
-
         protected override void OnInitialized()
         {
             IsRepeatable = Section.IsRepeatable;
-            copyNumber = Section?.SubSections?.Count + 2 ?? 2;
+            //copyNumber = Section?.SubSections?.Count + 2 ?? 2;
         }
 
-        private void AddFormSection(string label)
+        private void AddFormSection()
         {
-            var copiedSection = Section.GetElementCopy(copyNumber);
+            //var copiedSection = Section.GetElementCopy(copyNumber);
+            var copiedSection = Section.GetElementCopy();
             GenerateBindingKeys(copiedSection);
             if (Section.SubSections == null)
             {
                 Section.SubSections = new List<FormSection>();
             }
-            copyNumber++;
             Section.SubSections.Add(copiedSection);
         }
 
@@ -37,13 +37,14 @@ namespace Frontend.Cerulean.Cloud.Components.Forms
         {
             foreach (var formElement in section.Elements)
             {
+                //var key = FormHelper.GetKeyRepeatableKey(formElement.Name, Section.CopyVersion);
                 ElementValues[formElement.Name] = "";
             }
             if (section.SubSections != null)
             {
                 foreach (var subSection in section.SubSections)
                 {
-                    GenerateBindingKeys(section);
+                    GenerateBindingKeys(subSection);
                 }
             }
         }

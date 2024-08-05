@@ -15,7 +15,9 @@
                 Type = Type, 
                 Name = $"{Name}_{copyVersion}", 
                 Label = Label, 
-                PlaceHolder = PlaceHolder };
+                PlaceHolder = PlaceHolder,
+                Validations = Validations
+            };
         }
     }
 }

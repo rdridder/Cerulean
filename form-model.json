@@ -4,7 +4,7 @@
   "Sections": [
     {
       "Label": "Main form section",
-      "IsRepeatable": false,
+      "IsRepeatable": true,
       "Elements": [
         {
           "Type": "Text",
@@ -88,7 +88,7 @@
   ],
   "_rid": "OxQmAOSWkZcBAAAAAAAAAA==",
   "_self": "dbs/OxQmAA==/colls/OxQmAOSWkZc=/docs/OxQmAOSWkZcBAAAAAAAAAA==/",
-  "_etag": "\"00000000-0000-0000-e40a-5e6cc84801da\"",
+  "_etag": "\"00000000-0000-0000-e4c2-e8c2eb1101da\"",
   "_attachments": "attachments/",
-  "_ts": 1722513614
+  "_ts": 1722592874
 }

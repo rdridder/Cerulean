@@ -6,21 +6,21 @@
         {
             if (element.Type == "Text")
             {
-                <TextInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" />
+                <TextInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" CopyVersion="@Section.CopyVersion" />
             }
             else if (element.Type == "TextArea")
             {
-                <TextAreaInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" />
+                <TextAreaInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" CopyVersion="@Section.CopyVersion" />
             }
             else if (element.Type == "CheckBox")
             {
-                <CheckBoxInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" />
+                <CheckBoxInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" CopyVersion="@Section.CopyVersion" />
             }
         }
     </div>
     @if (@Section.IsRepeatable)
     {
-        <button class="btn btn-outline-dark flex-shrink-0" type="button" @onclick="() => AddFormSection(Section.Label)">
+        <button class="btn btn-outline-dark flex-shrink-0" type="button" @onclick="() => AddFormSection()">
             Add section
         </button>
     }

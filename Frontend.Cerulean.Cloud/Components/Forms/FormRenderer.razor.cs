@@ -48,7 +48,7 @@ namespace Frontend.Cerulean.Cloud.Components.Forms
                 }
             }
             foreach (var element in formSection.Elements ?? []) {
-                var key = FormHelper.GetKeyRepeatableKey(formSection.IsRepeatable, element.Name);
+                var key = FormHelper.GetKeyRepeatableKey(element.Name, formSection.CopyVersion);
                 ElementValues[key] = "";
             }
         }
@@ -101,7 +101,6 @@ namespace Frontend.Cerulean.Cloud.Components.Forms
                 
                 }
             }
-            //MessageStore?.Add(() => UserModel.PasswordConfirmation, "Passwords do not match.");
             editContext?.NotifyValidationStateChanged();
         }
 
