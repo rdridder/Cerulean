@@ -1,0 +1,23 @@
+﻿@using Frontend.Cerulean.Cloud.Components.Base;
+@inherits BaseInputComponent
+<div class="form-group mb-3">
+    <label class="form-group-label mb-1" for="@Key">
+        @Element.Label
+    </label>
+    <div class="input-group has-validation">
+
+        <select class="@ProcessedElementClass" aria-label="@Element.Label" id="@Key" @onchange="@(c => ElementValues[Key] = c.Value)">
+            <option>@Element.PlaceHolder</option>
+            @foreach (var option in Element.SelectElements) {
+                <option value="@option.Key">@option.Label</option>
+            }
+        </select>
+        <div id="validation@(Key)Feedback" class="invalid-feedback">
+            <ValidationMessage For="@(() => Element.Name)" />
+        </div>
+    </div>
+</div>
+
+@code {
+    public override string ElementClass { get; } = "form-select";
+}

@@ -1,0 +1,69 @@
+{
+  "id": "FormBuilder",
+  "FormId": "FormBuilder",
+  "Sections": [
+    {
+      "Label": "Fields",
+      "IsRepeatable": true,
+      "Elements": [
+        {
+          "Type": "Text",
+          "Name": "Title",
+          "Label": "Product title",
+          "PlaceHolder": "Type your product title here",
+          "Validations": [
+            {
+              "Name": "Required"
+            },
+            {
+              "Name": "MaxLength",
+              "Options": {
+                "MaxLength": "10"
+              }
+            }
+          ]
+        },
+        {
+          "Type": "Select",
+          "Name": "Title",
+          "Label": "Product title",
+          "PlaceHolder": "Type your product title here",
+          "Validations": [
+            {
+              "Name": "Required"
+            }
+          ],
+          "SelectElements": [
+            {
+              "Key": "One",
+              "Value": "One"
+            },
+            {
+              "Key": "Two",
+              "Value": "Two"
+            },
+            {
+              "Key": "Three",
+              "Value": "Three"
+            }
+          ]
+        }
+
+      ],
+      "SubSections": [
+        {
+          "Label": "Sub form section",
+          "IsRepeatable": false,
+          "Elements": [
+            {
+              "Type": "Text",
+              "Name": "Subtitle",
+              "Label": "Sub Product title",
+              "PlaceHolder": "Type your sub product title here"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

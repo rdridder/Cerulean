@@ -9,6 +9,8 @@
 
         public FormValidation[] Validations { get; set; }
 
+        public FormSelectElement[] SelectElements { get; set; }
+
         public FormElement GetElementCopy(int copyVersion)
         {
             return new FormElement() { 
@@ -16,7 +18,8 @@
                 Name = $"{Name}_{copyVersion}", 
                 Label = Label, 
                 PlaceHolder = PlaceHolder,
-                Validations = Validations
+                Validations = Validations,
+                SelectElements = SelectElements
             };
         }
     }

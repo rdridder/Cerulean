@@ -16,6 +16,10 @@
             {
                 <CheckBoxInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" CopyVersion="@Section.CopyVersion" />
             }
+            else if (element.Type == "Select")
+            {
+                <SelectInput Element="element" ElementValues="@ElementValues" IsRepeatable="@IsRepeatable" CopyVersion="@Section.CopyVersion" />
+            }
         }
     </div>
     @if (@Section.IsRepeatable)
